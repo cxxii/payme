@@ -28,5 +28,9 @@ public class EmployeeController {
         return employeeService.getEmployee();
     }
 
+    public String hello() {
+        return "TEST";
+    }
+
 
 }
