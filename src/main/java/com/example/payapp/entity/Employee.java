@@ -1,10 +1,23 @@
 package com.example.payapp.entity;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
+
+    @Id // Primary key
+    @SequenceGenerator(
+            name = "employee_sequence",
+            sequenceName = "employee_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "employee_sequence"
+    )
+
 
     private Long id;
     private String name;
