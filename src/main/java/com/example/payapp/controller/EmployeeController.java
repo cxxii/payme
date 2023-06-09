@@ -28,9 +28,15 @@ public class EmployeeController {
         return employeeService.getEmployee();
     }
 
-    public String hello() {
-        return "";
+    @GetMapping("employee/{id}")
+    public Employee getEmployeeById(@PathVariable("id") Long employeeId) {
+        return employeeService.getEmployeeById(employeeId);
     }
 
+    @DeleteMapping("employee/{id}")
+    public String deleteEmployeeById(@PathVariable("id") Long employeeId) {
+        employeeService.deleteEmployeeById(employeeId);
+        return "Employee deleted";
 
+    }
 }
