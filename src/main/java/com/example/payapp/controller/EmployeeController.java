@@ -37,6 +37,15 @@ public class EmployeeController {
     public String deleteEmployeeById(@PathVariable("id") Long employeeId) {
         employeeService.deleteEmployeeById(employeeId);
         return "Employee deleted";
+    }
 
+    @PutMapping("employee/{id}")
+    public Employee updateEmployeeById(
+            @PathVariable("id") Long employeeId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String jobTitle,
+            @RequestParam(required = false) String salary) {
+                employeeService.updateEmployeeById(employeeId, name, jobTitle, salary);
+                return ;
     }
 }

@@ -18,4 +18,6 @@ public interface EmployeeService {
     Employee getEmployeeById(Long employeeId);
 
     void deleteEmployeeById(Long employeeId);
+
+    void updateEmployeeById(Long employeeId, String name, String jobTitle, String salary);
 }
