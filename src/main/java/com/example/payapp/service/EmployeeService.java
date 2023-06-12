@@ -20,4 +20,6 @@ public interface EmployeeService {
     void updateEmployeeById(Long employeeId, String name, String jobTitle, int salary);
 
     List<Employee> getEmployeeByjobTitle(String jobTitle);
+
+    List<Employee> getEmployeeByName(String name);
 }

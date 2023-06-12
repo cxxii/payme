@@ -64,5 +64,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findByjobTitle(jobTitle);
     }
 
+    @Override
+    public List<Employee> getEmployeeByName(String name) {
+        return employeeRepository.findByName(name);
+    }
+
 
 }

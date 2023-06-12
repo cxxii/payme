@@ -17,11 +17,14 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
 
+    //POSTS
     @PostMapping("/employee")
         public Employee saveEmployee(@RequestBody Employee employee) {
             return employeeService.saveEmployee(employee);
     }
 
+
+    //GETS
 
     @GetMapping("/employee")
     public List<Employee> getEmployee() {
@@ -33,11 +36,19 @@ public class EmployeeController {
         return employeeService.getEmployeeById(employeeId);
     }
 
-    @DeleteMapping("employee/{id}")
-    public String deleteEmployeeById(@PathVariable("id") Long employeeId) {
-        employeeService.deleteEmployeeById(employeeId);
-        return "Employee deleted";
+    @GetMapping("employee/jobTitle/{jobTitle}")
+    public List<Employee> getEmployeeByJobTitle(@PathVariable("jobTitle") String jobTitle) {
+        return employeeService.getEmployeeByjobTitle(jobTitle);
     }
+
+    @GetMapping("employee/name/{name}")
+    public List<Employee> getEmployeeByName(@PathVariable("name") String name) {
+        return employeeService.getEmployeeByName(name);
+    }
+
+
+
+    // PUTS
 
     @PutMapping("employee/{id}")
     public void updateEmployeeById(
@@ -48,8 +59,16 @@ public class EmployeeController {
                 employeeService.updateEmployeeById(employeeId, name, jobTitle, salary);
     }
 
-    @GetMapping("employee/jobTitle/{jobTitle}")
-    public List<Employee> getEmployeeByJobTitle(@PathVariable("jobTitle") String jobTitle) {
-        return employeeService.getEmployeeByjobTitle(jobTitle);
+
+    // DELETES
+
+    @DeleteMapping("employee/{id}")
+    public String deleteEmployeeById(@PathVariable("id") Long employeeId) {
+        employeeService.deleteEmployeeById(employeeId);
+        return "Employee deleted";
     }
+
+
+
+
 }
