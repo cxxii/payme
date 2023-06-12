@@ -47,4 +47,9 @@ public class EmployeeController {
             @RequestParam(required = false) int salary) {
                 employeeService.updateEmployeeById(employeeId, name, jobTitle, salary);
     }
+
+    @GetMapping("employee/jobTitle/{jobTitle}")
+    public List<Employee> getEmployeeByJobTitle(@PathVariable("jobTitle") String jobTitle) {
+        return employeeService.getEmployeeByjobTitle(jobTitle);
+    }
 }

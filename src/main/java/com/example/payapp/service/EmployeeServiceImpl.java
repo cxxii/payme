@@ -51,12 +51,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         if (jobTitle != null && jobTitle.length() > 0 && !Objects.equals(employee.getJobTitle(), jobTitle)) {
-            employsalaryetName(jobTitle);
+            employee.setJobTitle(jobTitle);
         }
 
         if (salary > 0 && employee.getSalary() != salary) {
             employee.setSalary(salary);
         }
+    }
+
+    @Override
+    public List<Employee> getEmployeeByjobTitle(String jobTitle) {
+        return employeeRepository.findByjobTitle(jobTitle);
     }
 
 
