@@ -3,6 +3,8 @@ package com.example.payapp.controller;
 
 import com.example.payapp.entity.Employee;
 import com.example.payapp.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    private final Logger LOGGER =
+            LoggerFactory.getLogger(EmployeeController.class);
 
 
     //POSTS
